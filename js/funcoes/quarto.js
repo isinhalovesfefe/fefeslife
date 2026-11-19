@@ -85,7 +85,7 @@ function tocarMundo(sx, sy) {
             return;
         }
     }
-    const g = MAPA !== 'quarto' ? null : gatos.find(g => g.estado !== 'escondido' && g.estado !== 'oculto' && wx > g.x - 9 && wx < g.x + 9 && wy > g.y - 17 && wy < g.y + 3);
+    const cands = MAPA !== 'quarto' ? [] : gatos.filter(g => { const gy = g.y - (g.alt || 0); return g.estado !== 'escondido' && g.estado !== 'oculto' && wx > g.x - 11 && wx < g.x + 11 && wy > gy - 19 && wy < gy + 5; }), thoAtivo = thoTaps.some(t => performance.now() - t < 6000), g = cands.find(c => c.id === 'tho' && thoAtivo) || cands.sort((a, b) => Math.hypot(a.x - wx, a.y - 8 - wy) - Math.hypot(b.x - wx, b.y - 8 - wy))[0] || null;
     if (g) {
         if (g.id === 'tho' && tapTho(g))
             return;

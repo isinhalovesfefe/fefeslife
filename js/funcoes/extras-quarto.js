@@ -588,26 +588,27 @@ function tapTho(g) {
     }
     if (esconde)
         return false;
-    thoTaps = thoTaps.filter(t => agora - t < 5000);
+    thoTaps = thoTaps.filter(t => agora - t < 6000);
     thoTaps.push(agora);
     const n = thoTaps.length;
-    if (n >= 10) {
+    if (n >= 8) {
         thoTaps = [];
         FEFE.alvo = null;
         modoCaos(g);
         return true;
     }
-    if (n === 2 && agora - thoTaps[0] < 1500) {
+    if (n === 2) {
         FEFE.alvo = null;
+        falar(g, 'hm?', 700);
         return true;
     }
     if (n === 1) {
-        if (g.estado === 'andando' && !S.gatos.tho.dormindo && !g.chegar) {
+        if (!S.gatos.tho.dormindo && ['andando', 'perseguindo', 'fugindo', 'parado', 'laser'].includes(g.estado)) {
             g.estado = 'parado';
-            g.timer = 5;
+            g.chegar = null;
+            g.tx = null;
+            g.timer = Math.max(g.timer || 0, 5);
         }
-        else if (g.estado === 'parado')
-            g.timer = Math.max(g.timer, 5);
         FEFE.alvo = { g, x: g.x, y: g.y, raio: 16, t: 0, cb: () => { virarPara(g.x, g.y - 4); setTimeout(() => { if (thoTaps.length <= 1 && !bloqueioTela() && g.estado !== 'caos')
                 chegarNoGato(g); }, 420); } };
         return true;
@@ -634,6 +635,8 @@ function modoCaos(g) {
     g.vel = 140;
     g.tx = null;
     g.trav = null;
+    g.alt = 0;
+    g.pose24 = null;
     falar(g, 'MODO CAOS ATIVADO!!!', 1800);
     som.miau('tho', 1.45);
     shake = 6;
@@ -702,16 +705,28 @@ function atualizarExtras(dt) {
             }
             const dx = tho.tx - tho.x, dy = tho.ty - tho.y, d = Math.hypot(dx, dy) || 1, v = 140 * dt, nx = tho.x + dx / d * v, ny = tho.y + dy / d * v;
             let mov = false;
-            if (!bloqueado(nx, tho.y, 6)) {
+            const preso = bloqueado(tho.x, tho.y, 6);
+            if (preso || !bloqueado(nx, tho.y, 6)) {
                 tho.x = nx;
                 mov = true;
             }
-            if (!bloqueado(tho.x, ny, 6)) {
+            if (preso || !bloqueado(tho.x, ny, 6)) {
                 tho.y = ny;
                 mov = true;
             }
-            if (!mov)
+            if (!mov) {
                 tho.tx = null;
+                tho.presoT = (tho.presoT || 0) + dt;
+                if (tho.presoT > .4) {
+                    const [px, py] = pontoLivre();
+                    tho.x = px;
+                    tho.y = py;
+                    tho.presoT = 0;
+                    particula('poeira', px, py - 4, 4);
+                }
+            }
+            else
+                tho.presoT = 0;
             if (Math.abs(dx) > .5)
                 tho.dir = dx > 0 ? 1 : -1;
             if (Math.random() < dt * 8)
