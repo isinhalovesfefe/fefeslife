@@ -580,6 +580,22 @@ function fimEsconde(achou, cancelado) {
     }
     salvar();
 }
+function alvoCaos(t) { let melhor = null; for (let k = 0; k < 12; k++) {
+    const [x, y] = pontoLivre(), d = Math.hypot(x - t.x, y - t.y);
+    if (d < 30)
+        continue;
+    let ok = true;
+    for (let s = 6; s < d; s += 5) {
+        if (bloqueado(t.x + (x - t.x) * s / d, t.y + (y - t.y) * s / d, 6)) {
+            ok = false;
+            break;
+        }
+    }
+    if (ok)
+        return [x, y];
+    if (!melhor)
+        melhor = [x, y];
+} return melhor || pontoLivre(); }
 function tapTho(g) {
     const agora = performance.now();
     if (caosAte > agora) {
@@ -692,7 +708,9 @@ function atualizarExtras(dt) {
         else if (tho !== gatoPerto) {
             shake = Math.max(shake, 1.2);
             if (tho.tx == null || Math.hypot(tho.tx - tho.x, tho.ty - tho.y) < 4) {
-                [tho.tx, tho.ty] = pontoLivre();
+                [tho.tx, tho.ty] = alvoCaos(tho);
+                tho.melD = 1e9;
+                tho.semProg = 0;
                 if (Math.random() < .45) {
                     som.crash();
                     shake = Math.max(shake, 5);
@@ -727,6 +745,20 @@ function atualizarExtras(dt) {
             }
             else
                 tho.presoT = 0;
+            if (tho.tx != null) {
+                const dd = Math.hypot(tho.tx - tho.x, tho.ty - tho.y);
+                if (dd < (tho.melD || 1e9) - .8) {
+                    tho.melD = dd;
+                    tho.semProg = 0;
+                }
+                else {
+                    tho.semProg = (tho.semProg || 0) + dt;
+                    if (tho.semProg > .25) {
+                        tho.tx = null;
+                        tho.semProg = 0;
+                    }
+                }
+            }
             if (Math.abs(dx) > .5)
                 tho.dir = dx > 0 ? 1 : -1;
             if (Math.random() < dt * 8)
