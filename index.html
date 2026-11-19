@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Fefe's Life</title>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+
+</head>
+<body>
+<canvas id="tela"></canvas>
+
+<div class="hud">
+  <div class="px"><span id="icCor"></span><span id="coracoes">0</span></div>
+  <div class="px">🔥<span id="streak">1</span></div>
+  <div class="px" id="relogio">--:--</div>
+</div>
+<div class="topoDir">
+  <button class="px" id="btnCel" title="Celular"><span id="icCel"></span><span class="bdg" id="bdgCel">1</span></button>
+  <button class="px" id="btnLoja" title="Lojinha"></button>
+  <button class="px" id="btnConq" title="Conquistas">🏆</button>
+  <button class="px" id="btnAjuda" title="Tutorial">?</button>
+  <button class="px" id="btnSom">♪</button>
+  <button class="px" id="btnTela">⛶</button>
+</div>
+<div class="painelGato px" id="painelGato"></div>
+<div class="base" id="base"><div class="pino" id="pino"></div></div>
+<div class="dicaJoy" id="dicaJoy">toque pra andar · arraste pra mover · toque nos gatos</div>
+<div class="acao"><span class="rot" id="rotA"></span><button id="btnA">A</button></div>
+
+<div class="perto" id="perto">
+  <div class="cenaP" id="cenaP">
+    <svg class="fundoP" id="fundoP" viewBox="0 0 96 66" preserveAspectRatio="xMidYMax slice"></svg>
+    <div class="gatoP" id="gatoP"></div>
+    <div class="banheira" id="banheira"></div>
+    <div class="maoP" id="maoP"></div>
+    <div class="balaoP" id="balaoP"></div>
+    <div class="dicaP">passe o dedo no gatinho pra fazer carinho</div>
+  </div>
+  <div class="painelP" id="painelP"></div>
+</div>
+
+<div class="modal" id="modal"><div class="janelaM px" id="janelaM"></div></div>
+<div class="tuto px" id="tuto"></div>
+<div class="toast" id="toast"></div>
+<div class="flash" id="flash"></div>
+<div class="fade" id="fade"></div>
+<div class="girar" id="girar">
+  <div class="cel"></div>
+  <h2>Vira o celular, Fefe!</h2>
+  <div>o jogo fica melhor deitado</div>
+  <button class="px rosa" id="btnCheia">Tela cheia</button>
+  <button class="px" id="btnAssim">jogar assim mesmo</button>
+</div>
+
+<script src="js/carregamento.js"></script>
+<script src="js/funcoes/sprites.js"></script>
+<script src="js/funcoes/som.js"></script>
+<script src="js/funcoes/mundo.js"></script>
+<script src="js/funcoes/fefe.js"></script>
+<script src="js/funcoes/gatos.js"></script>
+<script src="js/funcoes/desenho.js"></script>
+<script src="js/funcoes/atualizacao.js"></script>
+<script src="js/funcoes/quarto.js"></script>
+<script src="js/funcoes/carinho.js"></script>
+<script src="js/funcoes/armario-espelho.js"></script>
+<script src="js/funcoes/acoes-quarto.js"></script>
+<script src="js/funcoes/decoracao-lojinha.js"></script>
+<script src="js/funcoes/tutorial.js"></script>
+<script src="js/funcoes/isinha.js"></script>
+<script src="js/funcoes/celular.js"></script>
+<script src="js/funcoes/cenas.js"></script>
+<script src="js/funcoes/pedir-comida.js"></script>
+<script src="js/funcoes/cidade.js"></script>
+<script src="js/funcoes/minijogos.js"></script>
+<script src="js/funcoes/cozinha.js"></script>
+<script src="js/funcoes/memorias.js"></script>
+<script src="js/funcoes/encontros-cartinhas.js"></script>
+<script src="js/funcoes/interface.js"></script>
+<script src="js/funcoes/extras-quarto.js"></script>
+<script src="js/funcoes/tela-inicial-conquistas.js"></script>
+<script src="js/funcoes/datas-especiais.js"></script>
+<script src="js/funcoes/livro.js"></script>
+<script src="js/funcoes/memorias-presentes.js"></script>
+<script src="js/funcoes/backup.js"></script>
+<script src="js/funcoes/surpresas.js"></script>
+<script src="js/funcoes/filme-camera.js"></script>
+<script src="js/funcoes/poses.js"></script>
+<script src="js/funcoes/sombras.js"></script>
+<script src="js/funcoes/necessidades.js"></script>
+<script src="js/funcoes/emojis.js"></script>
+<script src="js/funcoes/respirar-piscar.js"></script>
+<script src="js/funcoes/receitas.js"></script>
+<script src="js/funcoes/isinha-interacoes.js"></script>
+<script src="js/funcoes/guia-eventos.js"></script>
+<script src="js/funcoes/pessoas.js"></script>
+<script src="js/funcoes/cidade-praia.js"></script>
+<script src="js/funcoes/horarios.js"></script>
+<script src="js/funcoes/lojas.js"></script>
+<script src="js/funcoes/cinema.js"></script>
+<script src="js/funcoes/lojas-por-dentro.js"></script>
+<script src="js/funcoes/trilha.js"></script>
+<script src="js/funcoes/apelidos.js"></script>
+<script src="js/funcoes/conversas-gatos.js"></script>
+<script src="js/funcoes/panela-cenas.js"></script>
+<script src="js/funcoes/clarinha.js"></script>
+<script src="js/funcoes/mensagens.js"></script>
+<script src="js/funcoes/icones.js"></script>
+<script src="js/funcoes/buzinas.js"></script>
+<script src="js/funcoes/loop.js"></script>
+<script src="js/config.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/som.js"></script>
+<script src="js/mundo.js"></script>
+<script src="js/fefe.js"></script>
+<script src="js/gatos.js"></script>
+<script src="js/desenho.js"></script>
+<script src="js/atualizacao.js"></script>
+<script src="js/quarto.js"></script>
+<script src="js/carinho.js"></script>
+<script src="js/armario-espelho.js"></script>
+<script src="js/acoes-quarto.js"></script>
+<script src="js/decoracao-lojinha.js"></script>
+<script src="js/tutorial.js"></script>
+<script src="js/isinha.js"></script>
+<script src="js/celular.js"></script>
+<script src="js/cenas.js"></script>
+<script src="js/pedir-comida.js"></script>
+<script src="js/cidade.js"></script>
+<script src="js/minijogos.js"></script>
+<script src="js/cozinha.js"></script>
+<script src="js/memorias.js"></script>
+<script src="js/encontros-cartinhas.js"></script>
+<script src="js/interface.js"></script>
+<script src="js/extras-quarto.js"></script>
+<script src="js/tela-inicial-conquistas.js"></script>
+<script src="js/datas-especiais.js"></script>
+<script src="js/livro.js"></script>
+<script src="js/memorias-presentes.js"></script>
+<script src="js/backup.js"></script>
+<script src="js/surpresas.js"></script>
+<script src="js/filme-camera.js"></script>
+<script src="js/poses.js"></script>
+<script src="js/necessidades.js"></script>
+<script src="js/emojis.js"></script>
+<script src="js/respirar-piscar.js"></script>
+<script src="js/receitas.js"></script>
+<script src="js/isinha-interacoes.js"></script>
+<script src="js/guia-eventos.js"></script>
+<script src="js/pessoas.js"></script>
+<script src="js/cidade-praia.js"></script>
+<script src="js/horarios.js"></script>
+<script src="js/lojas.js"></script>
+<script src="js/cinema.js"></script>
+<script src="js/lojas-por-dentro.js"></script>
+<script src="js/trilha.js"></script>
+<script src="js/mapa.js"></script>
+<script src="js/apelidos.js"></script>
+<script src="js/conversas-gatos.js"></script>
+<script src="js/memorias-cenas.js"></script>
+<script src="js/panela-cenas.js"></script>
+<script src="js/clarinha.js"></script>
+<script src="js/mensagens.js"></script>
+<script src="js/icones.js"></script>
+<script src="js/buzinas.js"></script>
+<script src="js/loop.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+const CAMA_GATO = [[39, 186], [30, 190], [48, 190]];
+const POTES_POS = [[265, 198], [283, 198], [300, 206]];
+const CANTOS_CLARINHA = [[330, 176], [28, 120], [300, 96], [90, 220], [200, 226]];
+const gatos = Object.keys(GATOS).map((id, i) => ({ id, x: 150 + i * 40, y: 120 + i * 30, tx: null, ty: null, estado: 'parado', timer: 1 + i, dir: i % 2 ? 1 : -1, t: 0, chegar: null, humorTemp: null, humorAte: 0, vel: 30, par: null, cdFuga: 0 }));
+const G = id => gatos.find(g => g.id === id);
+let novelo = null, potesAte = 0, vitrolaAte = 0, socialT = 10;
+const particulas = [];
+const ASSISTIR_AQUARIO = [[280, 152], [300, 154], [290, 158]];
+const ALVOS_TRAQUINAGEM = [{ x: 191, y: 62, n: 'a estante' }, { x: 126, y: 68, n: 'a mesa' }, { x: 70, y: 68, n: 'o criado-mudo' }, { x: 252, y: 68, n: 'a vitrola' }];
+const baloes = [];

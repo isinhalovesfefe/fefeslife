@@ -1,0 +1,18 @@
+const HUMORES_DIARIO = ['😊', '😍', '😴', '😢', '😤', '🤒', '🥳'];
+let solT = 8, solGato = null;
+let presenteT = 140 + Math.random() * 120, presenteAtivo = null;
+LOJA.push({ id: 'laser', aba: 'brinq', n: 'Laser', preco: 25, desc: 'Aperte o botão do laser no quarto e veja o Tho surtar.' });
+let laser = null, laserBate = 0;
+const btnLaser = document.createElement('button');
+btnLaser.id = 'btnLaser';
+btnLaser.textContent = '🔴 Laser';
+btnLaser.style.cssText = 'position:fixed;left:16px;bottom:44px;z-index:6;display:none;font:inherit;font-weight:700;font-size:14px;padding:7px 12px;background:#fff;color:#2a1d30;border:none;box-shadow:0 0 0 3px #2a1d30,inset 0 -3px 0 rgba(0,0,0,.15);cursor:pointer';
+document.body.appendChild(btnLaser);
+btnLaser.onpointerdown = e => e.stopPropagation();
+btnLaser.onclick = e => { e.stopPropagation(); audio(); laser ? desligarLaser() : ligarLaser(); };
+let climaReal = null;
+const CLIMA_CODIGOS = { 0: ['☀️', 'Céu limpo'], 1: ['🌤️', 'Quase limpo'], 2: ['⛅', 'Parcialmente nublado'], 3: ['☁️', 'Nublado'], 45: ['🌫️', 'Neblina'], 48: ['🌫️', 'Neblina'], 51: ['🌦️', 'Garoa'], 53: ['🌦️', 'Garoa'], 55: ['🌦️', 'Garoa forte'], 61: ['🌧️', 'Chuva fraca'], 63: ['🌧️', 'Chuva'], 65: ['🌧️', 'Chuva forte'], 80: ['🌦️', 'Pancadas de chuva'], 81: ['🌧️', 'Pancadas de chuva'], 82: ['⛈️', 'Chuva forte'], 95: ['⛈️', 'Tempestade'], 96: ['⛈️', 'Tempestade'], 99: ['⛈️', 'Tempestade'] };
+const climaInfo = c => CLIMA_CODIGOS[c] || ['🌡️', '—'];
+setTimeout(buscarClima, 2500);
+setInterval(buscarClima, 30 * 60e3);
+CONQUISTAS.splice(CONQUISTAS.length - 1, 0, { id: 'diario', ic: '📔', n: 'Querido diário', d: 'Escrever no diário', ok: () => V('diario') }, { id: 'presenteGato', ic: '🧦', n: 'Presente de gato', d: 'Ganhar um presente de um gatinho', ok: () => V('presenteGato') }, { id: 'laser', ic: '🔴', n: 'Luz vermelha', d: 'Brincar de laser com o Tho', ok: () => V('laser') }, { id: 'chamada', ic: '📹', n: 'Saudade', d: 'Fazer uma videochamada com a Isinha', ok: () => V('chamada') });
