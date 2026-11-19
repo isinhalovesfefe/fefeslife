@@ -5,6 +5,7 @@ function abrir(t, html, comBotao = true, larga = false) {
     joy = { x: 0, y: 0 };
     $('base').style.display = 'none';
     FEFE.alvo = null;
+    window._abertoEm = performance.now();
 }
 function fechar() { $('modal').classList.remove('on'); clearInterval(espelhoTimer); }
 function modalAberto() { return $('modal').classList.contains('on'); }

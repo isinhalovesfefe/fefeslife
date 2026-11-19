@@ -1,4 +1,5 @@
-$('modal').addEventListener('click', e => { if (e.target.id === 'modal' || e.target.closest('[data-fechar]'))
+$('modal').addEventListener('click', e => { if (performance.now() - (window._abertoEm || 0) < 500)
+    return; if (e.target.id === 'modal' || e.target.closest('[data-fechar]'))
     fechar(); });
 let ultimoAlvo = null;
 addEventListener('keydown', e => {
