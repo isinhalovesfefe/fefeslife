@@ -104,7 +104,13 @@ gatos.forEach((g, i) => { if (S.gatos[g.id].dormindo) {
     cam.x = cx;
     cam.y = cy;
 }
-setTimeout(() => mostrarInicio(() => { if (!S.tutoFeito)
+setTimeout(() => mostrarInicio(() => { if (!S.tutoFeito && ehAniversario() && !(S.festa && S.festa[agoraJogo().getFullYear()])) {
+    window.tutoDepoisFesta = true;
+    festaT = 10;
+    festaRodando = false;
+    setTimeout(() => falar(FEFE, 'Oi, gatinhos!', 2500), 600);
+}
+else if (!S.tutoFeito)
     setTimeout(iniciarTutorial, 500);
 else
     setTimeout(() => falar(FEFE, cartasNovas() > 0 ? 'Tem cartinha nova no criado-mudo!' : 'Oi, gatinhos!', 3000), 400); }));

@@ -247,10 +247,15 @@ function atualizarFesta(dt) {
     }
     const ano = agoraJogo().getFullYear();
     S.festa = S.festa || {};
-    if (S.festa[ano] || festaRodando || bloqueioTela())
+    if (window.tutoDepoisFesta && (S.festa[ano] || (window._boloAberto && !modalAberto())) && !bloqueioTela()) {
+        window.tutoDepoisFesta = false;
+        setTimeout(() => { if (!S.tutoFeito && !tuto)
+            iniciarTutorial(); }, 2500);
+    }
+    if (S.festa[ano] || festaRodando || bloqueioTela() || tuto)
         return;
     if (festaT === null)
-        festaT = 6;
+        festaT = window.tutoDepoisFesta ? 10 : 6;
     festaT -= dt;
     if (festaT > 0)
         return;
@@ -284,6 +289,7 @@ function tocarParabens() {
     mus.forEach(([n, d]) => { tom(t, N[n], d * b * .95, .07, 'triangle'); t += d * b; });
 }
 function festaBolo() {
+    window._boloAberto = true;
     const W = 96, H = 64;
     let velas = [true, true, true], confete = [], soprou = false;
     abrir(`Feliz aniversário, ${NOME_DELA}! 🎂`, `<div class="mg">${cvPx('cvBolo', W, H)}<p id="boloMsg" style="margin:6px 0;min-height:20px">Faça um pedido e assopre as velinhas!</p>
