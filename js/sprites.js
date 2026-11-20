@@ -59,7 +59,7 @@ const GATOS = {
     clarinha: { nome: 'Clarinha', tipo: 'tabby', desc: 'Gosta de carinho... mas prefere ficar na dela.',
         cor: { O: '#3b2a30', B: '#aaa49c', b: '#efedea', M: '#aaa49c', P: '#aaa49c', I: '#f5a9bd', p: '#efedea', S: '#6c655d', E: '#a7c3cf', K: '#15121a', W: '#fff', F: '#3b2a30', N: '#d49aa0', m: '#a5485f', R: '#ff9fb9', H: '#fff', A: '#8fd0ff', L: '#ff5c8d', l: '#c2335f', T: '#9a948c' } },
     tho: { nome: 'Tho', tipo: 'preto', desc: 'Maluco, atrapalhado e imprevisível.',
-        cor: { O: '#0c0b0f', B: '#24212a', b: '#35303d', M: '#24212a', P: '#24212a', I: '#5a3d4a', p: '#35303d', S: '#24212a', E: '#62d36f', K: '#0c0b0f', W: '#fff', F: '#9a93a6', N: '#6b4b57', m: '#a5485f', R: '#c0507a', H: '#bdb6c8', A: '#8fd0ff', L: '#ff5c8d', l: '#c2335f', T: '#24212a' } },
+        cor: { O: '#0c0b0f', B: '#24212a', b: '#35303d', M: '#24212a', P: '#24212a', I: '#5a3d4a', p: '#35303d', S: '#24212a', E: '#a8d65c', K: '#0c0b0f', W: '#fff', F: '#9a93a6', N: '#6b4b57', m: '#a5485f', R: '#c0507a', H: '#bdb6c8', A: '#8fd0ff', L: '#ff5c8d', l: '#c2335f', T: '#24212a' } },
 };
 const FALAS = {
     lola: { perto: ['Fefe! Fefe! Fefe!', 'Te amo, sabia?', 'Colinho?', 'Prrrrr...', 'Senti saudade!'], carinho: ['Prrrrrr', 'MAIS!', 'Te amo, Fefe', 'Aí não para!', 'Que mão boa', '*derrete*'] },

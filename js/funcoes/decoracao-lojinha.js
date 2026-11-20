@@ -108,7 +108,7 @@ function construirDecor() {
                 c.fillRect(o.x + 7, o.y + 3, 10, 4);
                 c.fillRect(o.x + 7, o.y + 1, 2, 2);
                 c.fillRect(o.x + 15, o.y + 1, 2, 2);
-                c.fillStyle = pis ? '#24212a' : '#62d36f';
+                c.fillStyle = pis ? '#24212a' : '#a8d65c';
                 c.fillRect(o.x + 9, o.y + 4, 2, 1);
                 c.fillRect(o.x + 13, o.y + 4, 2, 1);
             }

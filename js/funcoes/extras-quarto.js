@@ -300,7 +300,7 @@ function jogoKart() {
             x.fillRect(42, 14 + b, 4, 4);
             x.fillRect(74, 14 + b, 4, 4);
             const pisca = Math.floor(t * 1.3) % 6 === 0;
-            x.fillStyle = '#7cff6a';
+            x.fillStyle = '#cdf27a';
             if (!pisca) {
                 x.fillRect(48, 26 + b, 6, 5);
                 x.fillRect(66, 26 + b, 6, 5);
