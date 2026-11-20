@@ -290,6 +290,9 @@ function tocarParabens() {
 }
 function festaBolo() {
     window._boloAberto = true;
+    S.festa = S.festa || {};
+    S.festa[agoraJogo().getFullYear()] = true;
+    salvar();
     const W = 96, H = 64;
     let velas = [true, true, true], confete = [], soprou = false;
     abrir(`Feliz aniversário, ${NOME_DELA}! 🎂`, `<div class="mg">${cvPx('cvBolo', W, H)}<p id="boloMsg" style="margin:6px 0;min-height:20px">Faça um pedido e assopre as velinhas!</p>
