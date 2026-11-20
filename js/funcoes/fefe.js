@@ -12,6 +12,8 @@ function orelhas(grid, lado) {
 }
 function gradesFefe(roupa = S.roupa, fone = S.fone) {
     const F = framesFefe(fone);
+    if (lookAtivo('fefe'))
+        roupa = 0;
     if (ROUPAS[roupa].orelhas)
         for (const d in F)
             F[d] = F[d].map(f => orelhas(f, d));
@@ -37,7 +39,8 @@ catch (e) { } try {
     desenharFantasia(c2d, id, x, y);
 }
 catch (e) { } }
-function paletaFefe(roupa = S.roupa) { const p = Object.assign({ W: '#ffffff', G: '#1d1b22', g: '#ff9fbf', k: '#1d1b22', y: '#f0dc8c', n: '#d9dbe6' }, FEFE_COR, ROUPAS[roupa].cor, (lookAtivo('fefe') || {}).cor || {}); p.z = p.A !== FEFE_COR.A ? p.A : '#5a3a4a'; return p; }
+function paletaFefe(roupa = S.roupa) { if (lookAtivo('fefe'))
+    roupa = 0; const p = Object.assign({ W: '#ffffff', G: '#1d1b22', g: '#ff9fbf', k: '#1d1b22', y: '#f0dc8c', n: '#d9dbe6' }, FEFE_COR, ROUPAS[roupa].cor, (lookAtivo('fefe') || {}).cor || {}); p.z = p.A !== FEFE_COR.A ? p.A : '#5a3a4a'; return p; }
 function montarFefe() {
     if (!roupaLiberada(S.roupa))
         S.roupa = 0;
