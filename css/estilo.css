@@ -223,7 +223,7 @@
   .mg .grande{font:inherit;font-weight:700;font-size:20px;border:none;background:var(--rosa);color:#fff;padding:14px 28px;box-shadow:0 0 0 3px var(--o),inset 0 -5px 0 var(--rosa2);cursor:pointer;touch-action:manipulation}
   .mg .area{height:130px;background:#ffe9d6;box-shadow:0 0 0 3px var(--o);margin:10px 0;display:grid;place-items:center;font-size:40px;touch-action:none}
   .mg canvas{image-rendering:pixelated;box-shadow:0 0 0 3px var(--o)}
-  .ladrao{font:inherit;font-weight:700;background:#24212a;color:#fff;border:none;padding:8px 12px;box-shadow:0 0 0 3px #a8d65c;cursor:pointer;animation:pisc2 .4s steps(1) infinite}
+  .ladrao{font:inherit;font-weight:700;background:#24212a;color:#fff;border:none;padding:8px 12px;box-shadow:0 0 0 3px #b4d65a;cursor:pointer;animation:pisc2 .4s steps(1) infinite}
   .lanes{display:flex;gap:10px;justify-content:center;margin-top:10px}
   .lanes button{width:72px;height:56px;border:none;font:inherit;font-weight:700;font-size:18px;color:#fff;box-shadow:0 0 0 3px var(--o),inset 0 -5px 0 rgba(0,0,0,.2);touch-action:none;cursor:pointer}
   .linhaTempo{display:flex;gap:14px;overflow-x:auto;padding:6px 4px 14px;touch-action:pan-x}

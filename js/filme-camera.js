@@ -50,7 +50,7 @@ btnLuz.onclick = e => {
             pensar(l, 'escuro = hora de brincar', 1800); }, 1400);
     }
 };
-const COR_OLHO = { lola: '#7ec8ff', clarinha: '#ffd36e', tho: '#cdf27a' };
+const COR_OLHO = { lola: '#7ec8ff', clarinha: '#ffd36e', tho: '#d6f27a' };
 let _cvNoite = null;
 const OVOS_CORES = [['#ff9ec4', '#fff'], ['#8fcaff', '#ffd36e'], ['#c08cff', '#fff'], ['#7bd389', '#ff9ec4'], ['#ffd36e', '#5b8cff'], ['#ffb36b', '#fff']];
 let sazonalDia24 = '';
