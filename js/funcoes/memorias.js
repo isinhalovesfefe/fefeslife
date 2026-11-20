@@ -1,5 +1,5 @@
 function abrirLinhaDoTempo() {
-    abrir('Nossa linha do tempo ♥', `<p style="margin:0 0 8px;font-size:14px">Toque em um momento pra reviver.</p><div class="linhaTempo">${MEMORIAS.map((m, i) => `<div class="memCard"><span class="data">${m.data}</span><span class="th" data-i="${i}"></span><b>${esc(m.titulo)}</b><small>${esc(m.legenda)}</small><button data-rev="${m.id}">Reviver ▶</button></div>`).join('')}</div>`, false, true);
+    abrir('Nossa linha do tempo ♥', `<p style="margin:0 0 8px;font-size:14px">Toque em um momento pra reviver.</p><div class="linhaTempo">${MEMORIAS.map((m, i) => `<div class="memCard"><span class="data">${m.data}</span><span class="th" data-i="${i}"></span><b style="flex:1">${esc(m.titulo)}</b><button data-rev="${m.id}">Reviver ▶</button></div>`).join('')}</div>`, false, true);
     document.querySelectorAll('.th').forEach(el => { const m = MEMORIAS[+el.dataset.i]; if (!CENAS[m.id]) {
         const salva = MAPA;
         CONSTROI[m.id]();
